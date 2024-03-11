@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "name": "Mobulaisbetter",
+    "version": "1.0.0",
+    "description": "...",
+    "icons": {
+      "48": "images/logomob48.jpg",
+      "128": "images/logomob128.jpg"
+    },
+    "permissions": [
+      "tabs"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    }
+  }
+  
