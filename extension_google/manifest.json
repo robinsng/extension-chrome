@@ -1,17 +1,23 @@
 {
-    "manifest_version": 3,
-    "name": "Mobulaisbetter",
-    "version": "1.0.0",
-    "description": "...",
-    "icons": {
-      "48": "images/logomob48.jpg",
-      "128": "images/logomob128.jpg"
-    },
-    "permissions": [
-      "tabs"
-    ],
-    "background": {
-      "service_worker": "background.js"
+  "manifest_version": 3,
+  "name": "Redirect to Mobula",
+  "version": "1.0",
+  "description": "Redirects CoinMarketCap assets to Mobula",
+  "icons": {
+    "48": "images/logomob48.jpg",
+    "128": "images/logomob128.jpg"
+  },
+  "permissions": [
+    "tabs",
+    "*://coinmarketcap.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://coinmarketcap.com/*"],
+      "js": ["content_script.js"]
     }
-  }
-  
+  ]
+}
