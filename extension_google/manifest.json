@@ -1,23 +1,35 @@
 {
   "manifest_version": 3,
-  "name": "Redirect to Mobula",
+  "name": "Recherche API Mobula depuis CoinMarketCap",
+  "description": "Ouvre l'API Mobula dans un nouvel onglet avec l'adresse du contrat d'un asset depuis CoinMarketCap.",
   "version": "1.0",
-  "description": "Redirects CoinMarketCap assets to Mobula",
-  "icons": {
-    "48": "images/logomob48.jpg",
-    "128": "images/logomob128.jpg"
-  },
   "permissions": [
+    "activeTab",
+    "scripting",
     "tabs",
-    "*://coinmarketcap.com/*"
+    "storage"
+  ],
+  "host_permissions": [
+    "https://api.mobula.io/*",
+    "*://*.coinmarketcap.com/*"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["*://coinmarketcap.com/*"],
-      "js": ["content_script.js"]
+      "matches": ["https://coinmarketcap.com/currencies/*", "https://coinmarketcap.com/*/currencies/*"],
+      "js": ["content.js"]
     }
-  ]
+  ],
+  "action": {
+    "default_icon": {
+      "48": "img/logomob48.jpg",
+      "128": "img/logomob128.jpg"
+    }
+  },
+  "icons": {
+    "48": "img/logomob48.jpg",
+    "128": "img/logomob128.jpg"
+  }
 }
