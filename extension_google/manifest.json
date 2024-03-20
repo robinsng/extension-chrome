@@ -11,14 +11,14 @@
   ],
   "host_permissions": [
     "https://api.mobula.io/*",
-    "*://*.coinmarketcap.com/*"
-  ],
+    "*coinmarketcap.com/*",
+    "*coingecko.com/*" ],
   "background": {
     "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": ["https://coinmarketcap.com/currencies/*", "https://coinmarketcap.com/*/currencies/*"],
+      "matches": ["https://coinmarketcap.com/currencies/*", "https://coinmarketcap.com/*/currencies/*","https://www.coingecko.com/*"],
       "js": ["content.js"]
     }
   ],
